@@ -138,7 +138,7 @@ export class GoogleSpeechService {
         },
         config: {
           encoding: encoding as any,
-          sampleRateHertz: 16000, // Default sample rate
+          sampleRateHertz: undefined, // Let Google auto-detect
           languageCode: languageCode,
           // Enable automatic punctuation for better readability
           enableAutomaticPunctuation: true,
