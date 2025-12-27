@@ -28,8 +28,8 @@ function parseMarkdownText(text: string): React.ReactNode[] {
     }
     
     // Pattern to match markdown syntax
-    // Order matters: check longer patterns first
-    const pattern = /(\*\*(.+?)\*\*)|(\*(.+?)\*)|(`(.+?)`)|(\~\~(.+?)\~\~)|(\[(.+?)\]\((.+?)\))/g
+    // Order matters: check longer patterns first (****text**** before **text**)
+    const pattern = /(\*\*\*\*(.+?)\*\*\*\*)|(\*\*(.+?)\*\*)|(\*(.+?)\*)|(`(.+?)`)|(\~\~(.+?)\~\~)|(\[(.+?)\]\((.+?)\))/g
     
     let lastIndex = 0
     let match
@@ -41,22 +41,25 @@ function parseMarkdownText(text: string): React.ReactNode[] {
       }
       
       if (match[1]) {
-        // **bold**
-        elements.push(<strong key={`bold-${key++}`}>{match[2]}</strong>)
+        // ****bold**** (4 asterisks)
+        elements.push(<strong key={`bold4-${key++}`}>{match[2]}</strong>)
       } else if (match[3]) {
-        // *italic*
-        elements.push(<em key={`italic-${key++}`}>{match[4]}</em>)
+        // **bold**
+        elements.push(<strong key={`bold-${key++}`}>{match[4]}</strong>)
       } else if (match[5]) {
-        // `code`
-        elements.push(<code key={`code-${key++}`} className="inline-code">{match[6]}</code>)
+        // *italic*
+        elements.push(<em key={`italic-${key++}`}>{match[6]}</em>)
       } else if (match[7]) {
-        // ~~strikethrough~~
-        elements.push(<del key={`del-${key++}`}>{match[8]}</del>)
+        // `code`
+        elements.push(<code key={`code-${key++}`} className="inline-code">{match[8]}</code>)
       } else if (match[9]) {
+        // ~~strikethrough~~
+        elements.push(<del key={`del-${key++}`}>{match[10]}</del>)
+      } else if (match[11]) {
         // [link](url)
         elements.push(
-          <a key={`link-${key++}`} href={match[11]} target="_blank" rel="noopener noreferrer" className="chat-link">
-            {match[10]}
+          <a key={`link-${key++}`} href={match[13]} target="_blank" rel="noopener noreferrer" className="chat-link">
+            {match[12]}
           </a>
         )
       }
