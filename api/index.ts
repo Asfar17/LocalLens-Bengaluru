@@ -15,11 +15,9 @@ function getAllowedOrigins(): string[] {
   if (allowedOrigins) {
     return allowedOrigins.split(',').map(origin => origin.trim()).filter(Boolean)
   }
-  // In production, allow Vercel URLs
   if (process.env.VERCEL_URL) {
     return [`https://${process.env.VERCEL_URL}`, 'https://locallens-bengaluru.vercel.app']
   }
-  // Default origins for development
   return ['http://localhost:3000', 'http://localhost:5173']
 }
 
@@ -27,17 +25,11 @@ function getAllowedOrigins(): string[] {
 const corsOptions: cors.CorsOptions = {
   origin: (origin, callback) => {
     const allowedOrigins = getAllowedOrigins()
-    // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) {
       callback(null, true)
       return
     }
-    if (allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
-      callback(null, true)
-    } else {
-      console.log('CORS blocked origin:', origin)
-      callback(null, true) // Allow all origins for now to debug
-    }
+    callback(null, true) // Allow all origins for debugging
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -49,13 +41,21 @@ app.use(cors(corsOptions))
 app.use(express.json({ limit: '10mb' }))
 app.use(express.urlencoded({ extended: true, limit: '10mb' }))
 
+// Health check - before routes
+app.get('/health', (_req: Request, res: Response) => {
+  res.json({ 
+    status: 'ok', 
+    timestamp: new Date().toISOString(),
+    env: {
+      hasMongoUri: !!process.env.MONGODB_URI,
+      hasOpenRouterKey: !!process.env.OPENROUTER_API_KEY,
+      hasGoogleKey: !!process.env.GOOGLE_CLOUD_API_KEY
+    }
+  })
+})
+
 // Mount routes
 app.use('/', apiRoutes)
-
-// Health check
-app.get('/health', (_req: Request, res: Response) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() })
-})
 
 // Error handling middleware
 app.use((err: Error, _req: Request, res: Response, _next: express.NextFunction) => {
@@ -67,23 +67,30 @@ app.use((err: Error, _req: Request, res: Response, _next: express.NextFunction) 
 let isConnected = false
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // Strip /api prefix from the URL for routing
-  if (req.url?.startsWith('/api')) {
-    req.url = req.url.replace('/api', '') || '/'
-  }
-  
-  // Connect to database if not connected
-  if (!isConnected && process.env.MONGODB_URI) {
-    try {
-      await connectDB()
-      isConnected = true
-      console.log('Database connected successfully')
-    } catch (error) {
-      console.error('Database connection failed:', error)
-      return res.status(503).json({ error: 'Database temporarily unavailable' })
+  try {
+    // Strip /api prefix from the URL for routing
+    if (req.url?.startsWith('/api')) {
+      req.url = req.url.replace('/api', '') || '/'
     }
+    
+    // Connect to database if not connected
+    if (!isConnected && process.env.MONGODB_URI) {
+      try {
+        await connectDB()
+        isConnected = true
+      } catch (error) {
+        console.error('Database connection failed:', error)
+        // Continue without database for health checks
+      }
+    }
+    
+    // Handle the request with Express
+    return app(req as unknown as Request, res as unknown as Response)
+  } catch (error) {
+    console.error('Handler error:', error)
+    return res.status(500).json({ 
+      error: 'Handler failed', 
+      message: error instanceof Error ? error.message : String(error)
+    })
   }
-  
-  // Handle the request with Express
-  return app(req as unknown as Request, res as unknown as Response)
 }
