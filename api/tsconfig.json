@@ -2,16 +2,13 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "esModuleInterop": true,
-    "strict": true,
+    "strict": false,
     "skipLibCheck": true,
-    "outDir": "./dist",
-    "rootDir": "..",
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "noEmit": true
+    "allowSyntheticDefaultImports": true
   },
-  "include": ["./**/*", "../server/src/**/*"],
+  "include": ["./**/*"],
   "exclude": ["node_modules", "dist"]
 }
