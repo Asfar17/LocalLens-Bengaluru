@@ -31,38 +31,46 @@ export class ContextManager {
     { id: 'etiquette', name: 'etiquette.md', domain: 'etiquette', isLoaded: true },
   ]
 
+  private possiblePaths: string[]
+  private contextDirResolved: boolean = false
+
   constructor() {
     // In Vercel serverless, process.cwd() is the project root
     // Try multiple paths to find the context directory
-    const possiblePaths = [
+    this.possiblePaths = [
       path.resolve(process.cwd(), 'context'),
       path.resolve(process.cwd(), '..', 'context'),
       path.resolve(__dirname, '..', '..', '..', 'context'),
-      path.resolve(__dirname, '..', '..', '..', '..', 'context')
+      path.resolve(__dirname, '..', '..', '..', '..', 'context'),
+      '/var/task/context' // Vercel serverless path
     ]
     
     // Default to the first path, will be validated when loading
-    this.contextDir = possiblePaths[0]
-    
-    // Try to find the correct path
-    this.findContextDir(possiblePaths)
+    this.contextDir = this.possiblePaths[0]
   }
 
-  private async findContextDir(paths: string[]): Promise<void> {
-    for (const p of paths) {
+  private async ensureContextDir(): Promise<void> {
+    if (this.contextDirResolved) return
+    
+    for (const p of this.possiblePaths) {
       try {
         await fs.access(p)
         this.contextDir = p
+        this.contextDirResolved = true
         console.log(`Context directory found at: ${p}`)
         return
       } catch {
         // Path doesn't exist, try next
+        console.log(`Context path not found: ${p}`)
       }
     }
     console.warn('Context directory not found in any expected location')
+    this.contextDirResolved = true
   }
 
   async loadContext(fileId: string): Promise<ContextContent | null> {
+    await this.ensureContextDir()
+    
     const fileInfo = this.contextFiles.find(f => f.id === fileId)
     if (!fileInfo) return null
 

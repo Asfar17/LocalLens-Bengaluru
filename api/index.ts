@@ -1,3 +1,6 @@
+// Load environment variables first (for local dev)
+import '../server/src/config/dotenv.js'
+
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import express, { Request, Response } from 'express'
 import cors from 'cors'
