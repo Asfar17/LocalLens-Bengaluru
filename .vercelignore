@@ -1,36 +1,11 @@
-# Dependencies (installed during build)
-node_modules/
-client/node_modules/
-server/node_modules/
-
-# Build outputs (generated during build)
-server/dist/
-
-# Development files
-*.log
+server/src
+server/tests
+server/dist
+server/node_modules
+.kiro
+*.md
 .env
 .env.local
-.env.*.local
-
-# IDE and editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Test files
-*.test.ts
-*.spec.ts
-__tests__/
-coverage/
-
-# Documentation (not needed for deployment)
-*.md
-!README.md
-
-# Kiro specs (development only)
-.kiro/specs/
+.env.example
+server/.env
+server/.env.example
