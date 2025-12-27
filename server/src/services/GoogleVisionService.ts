@@ -118,7 +118,7 @@ export class GoogleVisionService {
       const confidences = detections
         .slice(1) // Skip first (full text) annotation
         .map(d => d.confidence || 0)
-        .filter(c => c > 0);
+        .filter((c: number) => c > 0);
       
       const avgConfidence = confidences.length > 0
         ? confidences.reduce((a: number, b: number) => a + b, 0) / confidences.length
