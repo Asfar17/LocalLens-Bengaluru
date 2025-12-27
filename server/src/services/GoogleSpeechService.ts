@@ -38,7 +38,7 @@ export class GoogleSpeechService {
 
   /**
    * Initialize the Google Speech client
-   * Uses GOOGLE_APPLICATION_CREDENTIALS env var or gcp-key.json file
+   * Supports both JSON credentials (for Vercel) and file path (for local dev)
    */
   private initializeClient(): void {
     const apiKeyManager = getAPIKeyManager();
@@ -50,12 +50,20 @@ export class GoogleSpeechService {
     }
 
     try {
-      // Google Cloud Speech client uses Application Default Credentials
-      // or GOOGLE_APPLICATION_CREDENTIALS environment variable
-      // For this project, we use the gcp-key.json file
-      this.client = new speech.SpeechClient({
-        keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS || 'gcp-key.json',
-      });
+      // Check for JSON credentials first (Vercel deployment)
+      const credentialsJson = process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON;
+      
+      if (credentialsJson) {
+        // Parse JSON credentials for serverless deployment
+        const credentials = JSON.parse(credentialsJson);
+        this.client = new speech.SpeechClient({ credentials });
+      } else {
+        // Fall back to file path for local development
+        this.client = new speech.SpeechClient({
+          keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS || 'gcp-key.json',
+        });
+      }
+      
       this.isEnabled = true;
       console.log('✅ Google Speech Service initialized');
     } catch (error) {

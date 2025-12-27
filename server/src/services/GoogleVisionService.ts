@@ -43,7 +43,7 @@ export class GoogleVisionService {
 
   /**
    * Initialize Google Cloud Vision and Translation clients
-   * Uses GOOGLE_APPLICATION_CREDENTIALS env var or gcp-key.json file
+   * Supports both JSON credentials (for Vercel) and file path (for local dev)
    */
   private initializeClients(): void {
     const apiKeyManager = getAPIKeyManager();
@@ -55,20 +55,24 @@ export class GoogleVisionService {
     }
 
     try {
-      const keyFilename = process.env.GOOGLE_APPLICATION_CREDENTIALS || 'gcp-key.json';
+      // Check for JSON credentials first (Vercel deployment)
+      const credentialsJson = process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON;
       
-      // Initialize Vision client
-      this.visionClient = new vision.ImageAnnotatorClient({
-        keyFilename,
-      });
-
-      // Initialize Translation client
-      this.translateClient = new TranslationServiceClient({
-        keyFilename,
-      });
-
-      // Get project ID from environment or key file
-      this.projectId = process.env.GOOGLE_CLOUD_PROJECT || 'bangalore-assistant';
+      if (credentialsJson) {
+        // Parse JSON credentials for serverless deployment
+        const credentials = JSON.parse(credentialsJson);
+        
+        this.visionClient = new vision.ImageAnnotatorClient({ credentials });
+        this.translateClient = new TranslationServiceClient({ credentials });
+        this.projectId = credentials.project_id || process.env.GOOGLE_CLOUD_PROJECT || 'bangalore-assistant';
+      } else {
+        // Fall back to file path for local development
+        const keyFilename = process.env.GOOGLE_APPLICATION_CREDENTIALS || 'gcp-key.json';
+        
+        this.visionClient = new vision.ImageAnnotatorClient({ keyFilename });
+        this.translateClient = new TranslationServiceClient({ keyFilename });
+        this.projectId = process.env.GOOGLE_CLOUD_PROJECT || 'bangalore-assistant';
+      }
 
       this.isEnabled = true;
       console.log('✅ Google Vision Service initialized');
