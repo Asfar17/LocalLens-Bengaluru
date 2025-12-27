@@ -5,9 +5,9 @@
  * Requirements: 4.1, 4.2, 4.3 - Image text extraction, language detection, translation
  */
 
-import vision from '@google-cloud/vision';
-import { TranslationServiceClient } from '@google-cloud/translate';
-import { getAPIKeyManager } from './APIKeyManager.js';
+import { ImageAnnotatorClient } from '@google-cloud/vision'
+import { TranslationServiceClient } from '@google-cloud/translate'
+import { getAPIKeyManager } from './APIKeyManager.js'
 
 export interface VisionRequest {
   imageBuffer: Buffer;
@@ -32,10 +32,10 @@ export const SUPPORTED_LANGUAGES = {
 export type SupportedLanguage = typeof SUPPORTED_LANGUAGES[keyof typeof SUPPORTED_LANGUAGES];
 
 export class GoogleVisionService {
-  private visionClient: vision.ImageAnnotatorClient | null = null;
-  private translateClient: TranslationServiceClient | null = null;
-  private isEnabled: boolean = false;
-  private projectId: string = '';
+  private visionClient: ImageAnnotatorClient | null = null
+  private translateClient: TranslationServiceClient | null = null
+  private isEnabled: boolean = false
+  private projectId: string = ''
 
   constructor() {
     this.initializeClients();
@@ -60,18 +60,18 @@ export class GoogleVisionService {
       
       if (credentialsJson) {
         // Parse JSON credentials for serverless deployment
-        const credentials = JSON.parse(credentialsJson);
+        const credentials = JSON.parse(credentialsJson)
         
-        this.visionClient = new vision.ImageAnnotatorClient({ credentials });
-        this.translateClient = new TranslationServiceClient({ credentials });
-        this.projectId = credentials.project_id || process.env.GOOGLE_CLOUD_PROJECT || 'bangalore-assistant';
+        this.visionClient = new ImageAnnotatorClient({ credentials })
+        this.translateClient = new TranslationServiceClient({ credentials })
+        this.projectId = credentials.project_id || process.env.GOOGLE_CLOUD_PROJECT || 'bangalore-assistant'
       } else {
         // Fall back to file path for local development
-        const keyFilename = process.env.GOOGLE_APPLICATION_CREDENTIALS || 'gcp-key.json';
+        const keyFilename = process.env.GOOGLE_APPLICATION_CREDENTIALS || 'gcp-key.json'
         
-        this.visionClient = new vision.ImageAnnotatorClient({ keyFilename });
-        this.translateClient = new TranslationServiceClient({ keyFilename });
-        this.projectId = process.env.GOOGLE_CLOUD_PROJECT || 'bangalore-assistant';
+        this.visionClient = new ImageAnnotatorClient({ keyFilename })
+        this.translateClient = new TranslationServiceClient({ keyFilename })
+        this.projectId = process.env.GOOGLE_CLOUD_PROJECT || 'bangalore-assistant'
       }
 
       this.isEnabled = true;
