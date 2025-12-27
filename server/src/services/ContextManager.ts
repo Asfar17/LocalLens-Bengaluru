@@ -1,5 +1,9 @@
 import fs from 'fs/promises'
 import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 export interface ContextContent {
   fileId: string
@@ -28,7 +32,34 @@ export class ContextManager {
   ]
 
   constructor() {
-    this.contextDir = path.resolve(process.cwd(), '..', 'context')
+    // In Vercel serverless, process.cwd() is the project root
+    // Try multiple paths to find the context directory
+    const possiblePaths = [
+      path.resolve(process.cwd(), 'context'),
+      path.resolve(process.cwd(), '..', 'context'),
+      path.resolve(__dirname, '..', '..', '..', 'context'),
+      path.resolve(__dirname, '..', '..', '..', '..', 'context')
+    ]
+    
+    // Default to the first path, will be validated when loading
+    this.contextDir = possiblePaths[0]
+    
+    // Try to find the correct path
+    this.findContextDir(possiblePaths)
+  }
+
+  private async findContextDir(paths: string[]): Promise<void> {
+    for (const p of paths) {
+      try {
+        await fs.access(p)
+        this.contextDir = p
+        console.log(`Context directory found at: ${p}`)
+        return
+      } catch {
+        // Path doesn't exist, try next
+      }
+    }
+    console.warn('Context directory not found in any expected location')
   }
 
   async loadContext(fileId: string): Promise<ContextContent | null> {

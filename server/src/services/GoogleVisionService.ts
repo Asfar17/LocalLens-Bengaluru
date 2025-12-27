@@ -121,7 +121,7 @@ export class GoogleVisionService {
         .filter(c => c > 0);
       
       const avgConfidence = confidences.length > 0
-        ? confidences.reduce((a, b) => a + b, 0) / confidences.length
+        ? confidences.reduce((a: number, b: number) => a + b, 0) / confidences.length
         : 0.8; // Default confidence if not provided
 
       return {
