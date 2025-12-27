@@ -253,7 +253,7 @@ function ChatInterface({ persona, bangaloreContextEnabled, loadedContexts }: Cha
     } finally {
       setIsLoading(false)
     }
-  }, [isLoading, persona, bangaloreContextEnabled, loadedContexts])
+  }, [isLoading, persona, bangaloreContextEnabled, loadedContexts, userLocation])
 
   // Listen for sendQuery events from MediaInput
   useEffect(() => {
