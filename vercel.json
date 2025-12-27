@@ -5,12 +5,16 @@
   "installCommand": "npm install",
   "outputDirectory": "client/dist",
   "functions": {
-    "api/index.ts": {
+    "api/**/*.ts": {
       "maxDuration": 30,
       "includeFiles": "context/**"
     }
   },
   "rewrites": [
+    {
+      "source": "/api/test",
+      "destination": "/api/test"
+    },
     {
       "source": "/api/:path*",
       "destination": "/api/index.ts"
