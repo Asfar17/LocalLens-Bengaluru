@@ -1,7 +1,5 @@
-server/src
 server/tests
 server/dist
-server/node_modules
 .kiro
 *.md
 .env
