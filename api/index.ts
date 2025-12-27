@@ -1,10 +1,8 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node'
 import express, { Request, Response } from 'express'
 import cors from 'cors'
-import dotenv from 'dotenv'
 import { connectDB } from '../server/src/config/database.js'
 import apiRoutes from '../server/src/routes/api.js'
-
-dotenv.config()
 
 const app = express()
 
@@ -14,18 +12,15 @@ function getAllowedOrigins(): string[] {
   if (allowedOrigins) {
     return allowedOrigins.split(',').map(origin => origin.trim()).filter(Boolean)
   }
-  // Default origins for development
-  if (process.env.NODE_ENV !== 'production') {
-    return ['http://localhost:3000', 'http://localhost:5173']
-  }
-  // In production, if ALLOWED_ORIGINS is not set, use Vercel URL
+  // In production, allow Vercel URLs
   if (process.env.VERCEL_URL) {
-    return [`https://${process.env.VERCEL_URL}`]
+    return [`https://${process.env.VERCEL_URL}`, 'https://locallens-bengaluru.vercel.app']
   }
-  return []
+  // Default origins for development
+  return ['http://localhost:3000', 'http://localhost:5173']
 }
 
-// CORS configuration for production
+// CORS configuration
 const corsOptions: cors.CorsOptions = {
   origin: (origin, callback) => {
     const allowedOrigins = getAllowedOrigins()
@@ -37,12 +32,13 @@ const corsOptions: cors.CorsOptions = {
     if (allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
       callback(null, true)
     } else {
-      callback(new Error('Not allowed by CORS'))
+      console.log('CORS blocked origin:', origin)
+      callback(null, true) // Allow all origins for now to debug
     }
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'x-session-id']
 }
 
 // Middleware
@@ -50,11 +46,10 @@ app.use(cors(corsOptions))
 app.use(express.json({ limit: '10mb' }))
 app.use(express.urlencoded({ extended: true, limit: '10mb' }))
 
-// Strip /api prefix since Vercel routes /api/* to this handler
-// The routes in api.ts are defined without the /api prefix
+// Mount routes
 app.use('/', apiRoutes)
 
-// Health check at /api/health
+// Health check
 app.get('/health', (_req: Request, res: Response) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() })
 })
@@ -65,25 +60,27 @@ app.use((err: Error, _req: Request, res: Response, _next: express.NextFunction) 
   res.status(500).json({ error: 'Internal server error', message: err.message })
 })
 
-// Connect to database on cold start
+// Database connection state
 let isConnected = false
 
-const handler = async (req: Request, res: Response) => {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Strip /api prefix from the URL for routing
-  if (req.url.startsWith('/api')) {
+  if (req.url?.startsWith('/api')) {
     req.url = req.url.replace('/api', '') || '/'
   }
   
+  // Connect to database if not connected
   if (!isConnected && process.env.MONGODB_URI) {
     try {
       await connectDB()
       isConnected = true
+      console.log('Database connected successfully')
     } catch (error) {
       console.error('Database connection failed:', error)
       return res.status(503).json({ error: 'Database temporarily unavailable' })
     }
   }
-  return app(req, res)
+  
+  // Handle the request with Express
+  return app(req as unknown as Request, res as unknown as Response)
 }
-
-export default handler
