@@ -1,0 +1,188 @@
+/* Mobile-first base styles (320px+) */
+/* Glassmorphism Context Controls - Requirements: 1.4 */
+
+.context-controls {
+  /* Glass panel styling - warm vintage tones */
+  background: rgba(245, 235, 220, 0.75);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(180, 150, 120, 0.4);
+  box-shadow: 0 8px 32px rgba(101, 67, 33, 0.15);
+  padding: 0.5rem 0.625rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.master-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.master-toggle label {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+}
+
+/* Glass toggle button */
+.toggle-btn {
+  padding: 0.375rem 0.625rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+  min-height: 36px;
+  min-width: 50px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  cursor: pointer;
+}
+
+.toggle-btn.on {
+  background: rgba(85, 107, 47, 0.8);
+  border: 1px solid rgba(85, 107, 47, 0.6);
+  color: white;
+  box-shadow: 0 4px 12px rgba(85, 107, 47, 0.3);
+}
+
+.toggle-btn.on:hover {
+  background: rgba(100, 107, 47, 0.9);
+  transform: translateY(-1px);
+}
+
+.toggle-btn.off {
+  background: rgba(178, 34, 34, 0.8);
+  border: 1px solid rgba(178, 34, 34, 0.6);
+  color: white;
+  box-shadow: 0 4px 12px rgba(178, 34, 34, 0.3);
+}
+
+.toggle-btn.off:hover {
+  background: rgba(178, 34, 34, 0.9);
+  transform: translateY(-1px);
+}
+
+.context-files {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+/* Glass chip styling */
+.context-chip {
+  padding: 0.25rem 0.5rem;
+  background: rgba(250, 243, 230, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(180, 150, 120, 0.4);
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  text-transform: capitalize;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.context-chip:hover {
+  background: rgba(250, 243, 230, 0.85);
+  transform: translateY(-1px);
+}
+
+.context-chip.loaded {
+  background: rgba(85, 107, 47, 0.35);
+  border-color: rgba(85, 107, 47, 0.5);
+  color: #3d5a1e;
+  box-shadow: 0 2px 8px rgba(85, 107, 47, 0.2);
+}
+
+/* Small phones (375px+) */
+@media (min-width: 375px) {
+  .context-controls {
+    padding: 0.625rem 0.75rem;
+  }
+
+  .master-toggle label {
+    font-size: 0.875rem;
+  }
+
+  .toggle-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .context-files {
+    gap: 0.375rem;
+  }
+
+  .context-chip {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    min-height: 32px;
+  }
+}
+
+/* Large phones (480px+) */
+@media (min-width: 480px) {
+  .context-controls {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    width: auto;
+    border-radius: 16px;
+  }
+
+  .master-toggle {
+    justify-content: flex-start;
+  }
+
+  .master-toggle label {
+    white-space: nowrap;
+  }
+}
+
+/* Tablets (768px+) */
+@media (min-width: 768px) {
+  .context-controls {
+    gap: 1rem;
+  }
+
+  .context-files {
+    gap: 0.4rem;
+  }
+}
+
+/* ===========================================
+   Fallback for browsers without backdrop-filter
+   =========================================== */
+@supports not (backdrop-filter: blur(10px)) {
+  .context-controls {
+    background: rgba(245, 235, 220, 0.95);
+  }
+  
+  .toggle-btn.on {
+    background: rgba(85, 107, 47, 0.95);
+  }
+  
+  .toggle-btn.off {
+    background: rgba(178, 34, 34, 0.95);
+  }
+  
+  .context-chip {
+    background: rgba(250, 243, 230, 0.95);
+  }
+  
+  .context-chip.loaded {
+    background: rgba(85, 107, 47, 0.4);
+  }
+}

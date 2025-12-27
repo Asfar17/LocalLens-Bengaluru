@@ -1,0 +1,152 @@
+/* Mobile-first base styles (320px+) */
+/* Glassmorphism Persona Selector - Requirements: 1.4 */
+
+.persona-selector {
+  /* Glass card styling - warm vintage tones */
+  background: rgba(245, 235, 220, 0.75);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(180, 150, 120, 0.4);
+  box-shadow: 0 8px 32px rgba(101, 67, 33, 0.15);
+  padding: 0.5rem 0.625rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.persona-selector label {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+}
+
+.persona-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.375rem;
+}
+
+/* Glass button styling for persona buttons */
+.persona-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.5rem;
+  border: 1px solid rgba(180, 150, 120, 0.4);
+  border-radius: 16px;
+  /* Glass effect - warm tones */
+  background: rgba(250, 243, 230, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+  min-height: 40px;
+  cursor: pointer;
+}
+
+.persona-buttons button:hover {
+  background: rgba(250, 243, 230, 0.85);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(101, 67, 33, 0.15);
+}
+
+.persona-buttons button.active {
+  background: rgba(139, 105, 20, 0.85);
+  border-color: rgba(139, 105, 20, 0.6);
+  color: #faf3e6;
+  box-shadow: 0 4px 16px rgba(139, 105, 20, 0.3);
+}
+
+.persona-buttons button.active:hover {
+  background: rgba(139, 105, 20, 0.95);
+}
+
+.persona-buttons .emoji {
+  font-size: 0.9rem;
+}
+
+.persona-buttons .label {
+  font-weight: 500;
+}
+
+/* Small phones (375px+) */
+@media (min-width: 375px) {
+  .persona-selector {
+    padding: 0.625rem 0.75rem;
+  }
+
+  .persona-selector label {
+    font-size: 0.875rem;
+  }
+
+  .persona-buttons {
+    gap: 0.5rem;
+  }
+
+  .persona-buttons button {
+    padding: 0.5rem 0.625rem;
+    font-size: 0.8rem;
+    min-height: 44px;
+  }
+
+  .persona-buttons .emoji {
+    font-size: 1rem;
+  }
+}
+
+/* Large phones (480px+) */
+@media (min-width: 480px) {
+  .persona-selector {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    width: auto;
+    border-radius: 16px;
+  }
+
+  .persona-selector label {
+    white-space: nowrap;
+  }
+
+  .persona-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .persona-buttons button {
+    padding: 0.4rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    min-height: 40px;
+  }
+}
+
+/* Tablets (768px+) */
+@media (min-width: 768px) {
+  .persona-buttons button {
+    gap: 0.35rem;
+  }
+}
+
+/* ===========================================
+   Fallback for browsers without backdrop-filter
+   =========================================== */
+@supports not (backdrop-filter: blur(10px)) {
+  .persona-selector {
+    background: rgba(245, 235, 220, 0.95);
+  }
+  
+  .persona-buttons button {
+    background: rgba(250, 243, 230, 0.95);
+  }
+  
+  .persona-buttons button.active {
+    background: rgba(139, 105, 20, 0.95);
+  }
+}
