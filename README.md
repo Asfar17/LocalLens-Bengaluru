@@ -1,29 +1,87 @@
-# Bangalore Survival Assistant
+# 🌆 LocalLens Bengaluru
 
-A context-aware AI assistant to help people navigate life in Bangalore.
+**Version:** `v1.0.0`
+**Status:** 🚀 Production Ready
 
-## Features
+![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black)
+![Node.js](https://img.shields.io/badge/Node.js-18+-green)
+![React](https://img.shields.io/badge/React-18-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-- 🏙️ Context-aware responses based on local knowledge
-- 👤 Persona-based adaptation (Newbie, Student, IT Pro, Tourist)
-- 🗣️ Local slang interpretation
-- 🍛 Food recommendations
-- 🚗 Traffic and commute guidance
-- 🙏 Cultural etiquette tips
+---
 
-## Tech Stack
+## 🧭 About the Project
 
-- **Frontend**: React + Vite + TypeScript
-- **Backend**: Node.js + Express + TypeScript
-- **Database**: MongoDB
-- **Deployment**: Vercel
+**LocalLens Bengaluru** is a **context-aware AI-powered local guide** designed to help residents, newcomers, and tourists understand Bengaluru the way locals do.
 
-## Getting Started
+Instead of generic answers, LocalLens uses **custom local context files** and **persona-aware AI steering** to deliver culturally relevant, location-sensitive, and practical responses.
+
+🔗 **Live Demo:** [https://locallens-bengaluru.vercel.app/](https://locallens-bengaluru.vercel.app/)
+
+---
+
+## ✨ Key Features
+
+* 🏙️ **Context-aware responses** powered by Bangalore-specific knowledge
+* 👤 **Persona-based adaptation**
+
+  * Newbie
+  * Student
+  * IT Professional
+  * Tourist
+* 🗣️ **Local slang interpretation** (voice & text)
+* 🍛 **Location-aware street food recommendations**
+* 🚗 **Traffic & commute guidance** based on time and area
+* 🙏 **Cultural etiquette tips** for everyday interactions
+* 🔄 **Dynamic context switching** without redeployment
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+
+* **React 18**
+* **Vite**
+* **TypeScript**
+* **CSS3 (Responsive UI)**
+
+### Backend
+
+* **Node.js (18+)**
+* **Express**
+* **TypeScript**
+
+### Database
+
+* **MongoDB Atlas**
+
+### AI & External Services (Optional Enhancements)
+
+* **OpenAI / OpenRouter** – AI responses
+* **Google Cloud APIs**
+
+  * Speech-to-Text
+  * Vision OCR
+  * Translation
+  * Maps (Places API)
+
+### Deployment
+
+* **Vercel (Serverless Functions)**
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 18+
-- MongoDB (local or Atlas)
+* Node.js `18+`
+* MongoDB (Local or Atlas)
+
+---
 
 ### Installation
 
@@ -38,177 +96,134 @@ cp server/.env.example server/.env
 npm run dev
 ```
 
+---
+
 ### Environment Variables
 
 Create `server/.env`:
 
-```
+```env
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/bangalore-assistant
 ```
 
-## Vercel Deployment
+---
+
+## ☁️ Vercel Deployment
 
 ### Quick Deploy
 
-1. Push your code to GitHub
-2. Import the repository in [Vercel](https://vercel.com/new)
-3. Configure environment variables in Vercel project settings (see below)
-4. Deploy!
+1. Push the repository to GitHub
+2. Import it in **Vercel** → [https://vercel.com/new](https://vercel.com/new)
+3. Configure environment variables
+4. Deploy 🚀
 
-### Environment Variables
+---
 
-Configure these in your Vercel project settings (Settings > Environment Variables):
+### Required & Optional Environment Variables
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `MONGODB_URI` | ✅ Yes | MongoDB Atlas connection string |
-| `OPENAI_API_KEY` | ⚠️ Optional | OpenAI API key for AI-powered responses |
-| `GOOGLE_CLOUD_API_KEY` | ⚠️ Optional | Google Cloud API key (Speech-to-Text, Vision, Translate) |
-| `GOOGLE_MAPS_API_KEY` | ⚠️ Optional | Google Maps API key (Places API) |
-| `ALLOWED_ORIGINS` | ⚠️ Optional | Comma-separated list of allowed CORS origins |
-| `NODE_ENV` | Auto | Set automatically by Vercel to `production` |
+| Variable               | Required    | Description                     |
+| ---------------------- | ----------- | ------------------------------- |
+| `MONGODB_URI`          | ✅ Yes       | MongoDB Atlas connection string |
+| `OPENAI_API_KEY`       | ⚠️ Optional | AI-powered responses            |
+| `GOOGLE_CLOUD_API_KEY` | ⚠️ Optional | Speech, Vision, Translate       |
+| `GOOGLE_MAPS_API_KEY`  | ⚠️ Optional | Places & location services      |
+| `ALLOWED_ORIGINS`      | ⚠️ Optional | CORS control                    |
+| `NODE_ENV`             | Auto        | Set by Vercel                   |
 
-> **Note**: Optional API keys enable enhanced features. The app works without them using context-file-based responses.
+> ℹ️ The app **works even without AI APIs** using local context files.
 
-### API Key Setup
+---
 
-#### MongoDB Atlas (Required)
-1. Create a free cluster at [MongoDB Atlas](https://www.mongodb.com/atlas)
-2. Create a database user with read/write access
-3. Add `0.0.0.0/0` to the IP Access List (or Vercel's IPs)
-4. Get your connection string from Database > Connect > Drivers
-5. Format: `mongodb+srv://username:password@cluster.mongodb.net/bangalore-assistant`
+## 🔐 API Key Setup
 
-#### OpenAI (Optional - AI Responses)
-1. Create an account at [OpenAI Platform](https://platform.openai.com)
-2. Generate an API key from API Keys section
-3. Add billing information for API usage
-4. Format: `sk-...`
+### MongoDB Atlas (Required)
 
-#### Google Cloud (Optional - Voice & Image)
-1. Create a project in [Google Cloud Console](https://console.cloud.google.com)
-2. Enable these APIs:
-   - Cloud Speech-to-Text API
-   - Cloud Vision API
-   - Cloud Translation API
-3. Create an API key from Credentials section
-4. Restrict the key to only the enabled APIs
+1. Create a free cluster
+2. Add DB user (read/write)
+3. IP Access List → `0.0.0.0/0`
+4. Copy connection string
 
-#### Google Maps (Optional - Location)
-1. In the same Google Cloud project, enable:
-   - Places API
-   - Geocoding API
-2. Create a separate API key for Maps
-3. Restrict the key to Maps APIs only
-
-### Deployment Checklist
-
-- [ ] MongoDB Atlas cluster created and configured
-- [ ] Database user created with read/write permissions
-- [ ] IP Access List configured (0.0.0.0/0 for Vercel)
-- [ ] `MONGODB_URI` added to Vercel environment variables
-- [ ] (Optional) OpenAI API key added as `OPENAI_API_KEY`
-- [ ] (Optional) Google Cloud API key added as `GOOGLE_CLOUD_API_KEY`
-- [ ] (Optional) Google Maps API key added as `GOOGLE_MAPS_API_KEY`
-- [ ] (Optional) `ALLOWED_ORIGINS` configured with your domain(s)
-- [ ] Deployment triggered and successful
-- [ ] Health check endpoint verified: `https://your-app.vercel.app/api/health`
-
-### Manual CLI Deployment
-
-1. Install Vercel CLI:
-   ```bash
-   npm i -g vercel
-   ```
-
-2. Login to Vercel:
-   ```bash
-   vercel login
-   ```
-
-3. Deploy:
-   ```bash
-   vercel
-   ```
-
-4. Set environment variables:
-   ```bash
-   vercel env add MONGODB_URI
-   vercel env add OPENAI_API_KEY
-   vercel env add GOOGLE_CLOUD_API_KEY
-   vercel env add GOOGLE_MAPS_API_KEY
-   vercel env add ALLOWED_ORIGINS
-   ```
-
-5. Redeploy to apply environment variables:
-   ```bash
-   vercel --prod
-   ```
-
-### CORS Configuration
-
-By default, the API allows requests from:
-- `http://localhost:3000` (development)
-- `http://localhost:5173` (Vite dev server)
-- Your Vercel deployment URL
-
-To restrict origins in production, set `ALLOWED_ORIGINS`:
-```
-ALLOWED_ORIGINS=https://your-app.vercel.app,https://your-custom-domain.com
+```text
+mongodb+srv://username:password@cluster.mongodb.net/bangalore-assistant
 ```
 
-### Troubleshooting
+---
 
-| Issue | Solution |
-|-------|----------|
-| Database connection fails | Check MongoDB Atlas IP whitelist includes 0.0.0.0/0 |
-| CORS errors | Verify `ALLOWED_ORIGINS` includes your frontend domain |
-| AI features not working | Check API keys are correctly set in Vercel |
-| 503 Service Unavailable | Check Vercel function logs for errors |
+### OpenAI (Optional)
 
-### Deployment Configuration
+* Used for AI-powered conversational responses
+* Billing required for quota access
 
-The project includes:
-- `vercel.json` - Vercel build, routing, and function configuration
-- `api/index.ts` - Serverless function entry point for the backend
-- `.vercelignore` - Files excluded from deployment
+---
 
-## Project Structure
+### Google Cloud APIs (Optional)
+
+Enable:
+
+* Speech-to-Text
+* Vision OCR
+* Translation
+* Maps (Places API)
+
+🔒 **Always restrict API keys by service**
+
+---
+
+## 📦 Project Structure
 
 ```
 ├── api/             # Vercel serverless functions
-│   └── index.ts     # Express app wrapper
+│   └── index.ts
 ├── client/          # React frontend
-│   ├── src/
-│   │   ├── components/
-│   │   └── App.tsx
-│   └── package.json
+│   └── src/
 ├── server/          # Express backend
-│   ├── src/
-│   │   ├── routes/
-│   │   ├── services/
-│   │   └── index.ts
-│   └── package.json
-├── context/         # Markdown context files
+│   └── src/
+├── context/         # Local knowledge (Markdown)
 │   ├── city.md
 │   ├── slang.md
 │   ├── food.md
 │   ├── traffic.md
 │   └── etiquette.md
-├── vercel.json      # Vercel configuration
-└── package.json     # Root workspace config
+├── vercel.json
+└── package.json
 ```
 
-## API Endpoints
+---
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /api/query | Submit query, get response |
-| GET | /api/contexts | List context files |
-| POST | /api/contexts/:id/toggle | Toggle context |
-| POST | /api/persona | Set persona |
+## 🔌 API Endpoints
 
-## License
+| Method | Endpoint                   | Description            |
+| ------ | -------------------------- | ---------------------- |
+| POST   | `/api/query`               | Submit user query      |
+| GET    | `/api/contexts`            | List context files     |
+| POST   | `/api/contexts/:id/toggle` | Enable/disable context |
+| POST   | `/api/persona`             | Set user persona       |
+| GET    | `/api/health`              | Health check           |
 
-MIT
+---
+
+## 🧪 Troubleshooting
+
+| Issue               | Fix                        |
+| ------------------- | -------------------------- |
+| DB connection error | Check MongoDB IP whitelist |
+| CORS error          | Verify `ALLOWED_ORIGINS`   |
+| AI not responding   | Check API keys in Vercel   |
+| 503 error           | Check function logs        |
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## 🙌 Acknowledgements
+
+Built with ❤️ using **AWS Kiro**, showcasing the power of **context-driven AI development** and **human-AI collaboration**.
+
+---
+
+Just tell me 👌
