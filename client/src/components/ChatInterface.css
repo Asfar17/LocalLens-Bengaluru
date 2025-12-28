@@ -737,3 +737,153 @@
   font-style: italic;
   color: inherit;
 }
+
+/* Table styles */
+.message-content .markdown-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.85em;
+  background: rgba(250, 243, 230, 0.5);
+  border: 1px solid rgba(180, 150, 120, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.message-content .markdown-table th {
+  background: rgba(139, 105, 20, 0.15);
+  padding: 0.5rem 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 2px solid rgba(139, 105, 20, 0.3);
+  border-right: 1px solid rgba(180, 150, 120, 0.2);
+}
+
+.message-content .markdown-table th:last-child {
+  border-right: none;
+}
+
+.message-content .markdown-table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(180, 150, 120, 0.2);
+  border-right: 1px solid rgba(180, 150, 120, 0.15);
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.message-content .markdown-table td:last-child {
+  border-right: none;
+}
+
+.message-content .markdown-table tr:last-child td {
+  border-bottom: none;
+}
+
+.message-content .markdown-table tr:nth-child(even) {
+  background: rgba(245, 235, 220, 0.3);
+}
+
+/* User message table overrides */
+.chat-message.user .markdown-table {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.chat-message.user .markdown-table th {
+  background: rgba(255, 255, 255, 0.2);
+  color: #faf3e6;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.chat-message.user .markdown-table td {
+  color: #faf3e6;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.chat-message.user .markdown-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Direction arrow styles */
+.message-content .direction-item {
+  display: flex;
+  align-items: flex-start;
+  margin: 0.375rem 0;
+  padding: 0.375rem 0.5rem;
+  border-radius: 6px;
+  line-height: 1.4;
+  background: rgba(85, 107, 47, 0.1);
+  border-left: 3px solid rgba(85, 107, 47, 0.4);
+}
+
+.message-content .direction-item.indent-1 {
+  margin-left: 1rem;
+}
+
+.message-content .direction-item.indent-2 {
+  margin-left: 2rem;
+}
+
+.message-content .direction-item.indent-3 {
+  margin-left: 3rem;
+}
+
+.message-content .direction-arrow {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  color: var(--text-accent);
+}
+
+/* Direction-specific styling */
+.message-content .direction-item.arrow-right {
+  border-left-color: rgba(34, 139, 34, 0.5);
+  background: rgba(34, 139, 34, 0.08);
+}
+
+.message-content .direction-item.arrow-left {
+  border-left-color: rgba(220, 20, 60, 0.5);
+  background: rgba(220, 20, 60, 0.08);
+}
+
+.message-content .direction-item.arrow-up {
+  border-left-color: rgba(30, 144, 255, 0.5);
+  background: rgba(30, 144, 255, 0.08);
+}
+
+.message-content .direction-item.arrow-down {
+  border-left-color: rgba(255, 140, 0, 0.5);
+  background: rgba(255, 140, 0, 0.08);
+}
+
+.message-content .direction-item.arrow-up-right,
+.message-content .direction-item.arrow-up-left,
+.message-content .direction-item.arrow-down-right,
+.message-content .direction-item.arrow-down-left {
+  border-left-color: rgba(138, 43, 226, 0.5);
+  background: rgba(138, 43, 226, 0.08);
+}
+
+/* User message direction overrides */
+.chat-message.user .direction-item {
+  background: rgba(255, 255, 255, 0.15);
+  border-left-color: rgba(255, 255, 255, 0.4);
+}
+
+.chat-message.user .direction-arrow {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive table styles */
+@media (max-width: 480px) {
+  .message-content .markdown-table {
+    font-size: 0.8em;
+  }
+  
+  .message-content .markdown-table th,
+  .message-content .markdown-table td {
+    padding: 0.375rem 0.5rem;
+  }
+}

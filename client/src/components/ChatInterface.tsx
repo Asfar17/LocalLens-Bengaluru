@@ -5,17 +5,91 @@ import './ChatInterface.css'
 
 /**
  * Parse markdown-style text and return React elements
- * Supports: # ## ### #### headings, **bold**, *italic*, ***bold+italic***, `code`, ~~strikethrough~~, [links](url), lists, and line breaks
+ * Supports: # ## ### #### headings, **bold**, *italic*, ***bold+italic***, `code`, ~~strikethrough~~, [links](url), lists, tables, arrows, and line breaks
  */
 function parseMarkdownText(text: string): React.ReactNode[] {
   const elements: React.ReactNode[] = []
   let key = 0
 
-  // Split by line breaks first to handle paragraphs and lists
+  // Split by line breaks first to handle paragraphs, lists, and tables
   const lines = text.split('\n')
   
+  // Track table parsing state
+  let inTable = false
+  let tableRows: string[] = []
+  
+  const processTable = () => {
+    if (tableRows.length < 2) return // Need at least header and separator
+    
+    const headerRow = tableRows[0]
+    const separatorRow = tableRows[1]
+    const dataRows = tableRows.slice(2)
+    
+    // Parse header
+    const headers = headerRow.split('|').map(h => h.trim()).filter(h => h)
+    
+    // Check if it's a valid table (separator row should have dashes)
+    if (!separatorRow.includes('-')) return
+    
+    // Parse alignment from separator row
+    const alignments = separatorRow.split('|').map(sep => {
+      const trimmed = sep.trim()
+      if (trimmed.startsWith(':') && trimmed.endsWith(':')) return 'center'
+      if (trimmed.endsWith(':')) return 'right'
+      return 'left'
+    }).filter((_, i) => i < headers.length)
+    
+    elements.push(
+      <table key={`table-${key++}`} className="markdown-table">
+        <thead>
+          <tr>
+            {headers.map((header, i) => (
+              <th key={`th-${i}`} style={{ textAlign: alignments[i] || 'left' }}>
+                <FormattedText text={header} />
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {dataRows.map((row, rowIndex) => {
+            const cells = row.split('|').map(c => c.trim()).filter(c => c)
+            return (
+              <tr key={`tr-${rowIndex}`}>
+                {cells.map((cell, cellIndex) => (
+                  <td key={`td-${cellIndex}`} style={{ textAlign: alignments[cellIndex] || 'left' }}>
+                    <FormattedText text={cell} />
+                  </td>
+                ))}
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+    )
+    
+    tableRows = []
+    inTable = false
+  }
+  
   lines.forEach((line, lineIndex) => {
-    if (lineIndex > 0) {
+    // Check if this line is part of a table
+    const isTableLine = line.includes('|') && line.trim().length > 0
+    
+    if (isTableLine) {
+      if (!inTable) {
+        inTable = true
+        if (elements.length > 0) {
+          elements.push(<br key={`br-${key++}`} />)
+        }
+      }
+      tableRows.push(line)
+      return
+    } else if (inTable) {
+      // End of table, process it
+      processTable()
+    }
+    
+    if (lineIndex > 0 && !inTable) {
       elements.push(<br key={`br-${key++}`} />)
     }
     
@@ -29,6 +103,33 @@ function parseMarkdownText(text: string): React.ReactNode[] {
         <HeadingTag key={`heading-${key++}`} className={`chat-heading chat-heading-${level}`}>
           <FormattedText text={headingText} />
         </HeadingTag>
+      )
+      return
+    }
+    
+    // Check for direction arrows (→, ←, ↑, ↓, ↗, ↖, ↘, ↙)
+    const directionMatch = line.match(/^(\s*)(→|←|↑|↓|↗|↖|↘|↙)\s+(.+)$/)
+    if (directionMatch) {
+      const indent = directionMatch[1].length
+      const arrow = directionMatch[2]
+      const directionText = directionMatch[3]
+      
+      const directionClass = {
+        '→': 'arrow-right',
+        '←': 'arrow-left', 
+        '↑': 'arrow-up',
+        '↓': 'arrow-down',
+        '↗': 'arrow-up-right',
+        '↖': 'arrow-up-left',
+        '↘': 'arrow-down-right',
+        '↙': 'arrow-down-left'
+      }[arrow] || 'arrow-right'
+      
+      elements.push(
+        <div key={`direction-${key++}`} className={`direction-item ${directionClass} indent-${Math.floor(indent / 2)}`}>
+          <span className="direction-arrow">{arrow}</span>
+          <FormattedText text={directionText} />
+        </div>
       )
       return
     }
@@ -107,6 +208,11 @@ function parseMarkdownText(text: string): React.ReactNode[] {
       elements.push(line.slice(lastIndex))
     }
   })
+  
+  // Process any remaining table at the end
+  if (inTable && tableRows.length > 0) {
+    processTable()
+  }
   
   return elements
 }
