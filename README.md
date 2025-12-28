@@ -225,5 +225,3 @@ This project is licensed under the **MIT License**.
 Built with ❤️ using **AWS Kiro**, showcasing the power of **context-driven AI development** and **human-AI collaboration**.
 
 ---
-
-Just tell me 👌
