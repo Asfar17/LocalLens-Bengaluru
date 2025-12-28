@@ -17,7 +17,7 @@ function ContextControls({
   return (
     <div className="context-controls">
       <div className="master-toggle">
-        <label>Bangalore Context:</label>
+        <label>Bengaluru Context:</label>
         <button
           className={`toggle-btn ${bangaloreContextEnabled ? 'on' : 'off'}`}
           onClick={() => onToggleBangaloreContext(!bangaloreContextEnabled)}

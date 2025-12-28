@@ -148,7 +148,7 @@ function App() {
       <div className="app">
         <header className="app-header glass-card">
           <h1>🏙️ LocalLens Bengaluru</h1>
-          <p>Your context-aware guide to life in Bangalore</p>
+          <p>Your context-aware guide to life in Bengaluru</p>
         </header>
         
         <div className="app-controls">
