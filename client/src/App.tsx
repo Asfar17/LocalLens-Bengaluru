@@ -181,6 +181,14 @@ function App() {
             loadedContexts={contextFiles.filter(f => f.isLoaded).map(f => f.id)}
           />
         </main>
+
+        <footer className="app-footer">
+          <div className="footer-watermark">
+            <span className="powered-by">Powered by <strong>Kiro</strong></span>
+            <span className="separator">•</span>
+            <span className="developed-by">Developed by <strong>Asfar</strong></span>
+          </div>
+        </footer>
       </div>
     </div>
   )
