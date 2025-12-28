@@ -643,14 +643,97 @@
 }
 
 
-/* Markdown heading styles (###, ##, #) */
-.message-content .chat-heading {
-  display: block;
+/* Markdown heading styles (####, ###, ##, #) */
+.message-content .chat-heading-1 {
+  font-size: 1.25em;
+  font-weight: 700;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  border-bottom: 2px solid rgba(139, 105, 20, 0.3);
+  padding-bottom: 0.25rem;
+}
+
+.message-content .chat-heading-2 {
+  font-size: 1.15em;
+  font-weight: 650;
+  margin-top: 0.625rem;
+  margin-bottom: 0.375rem;
+  color: var(--text-primary);
+}
+
+.message-content .chat-heading-3 {
+  font-size: 1.05em;
   font-weight: 600;
   margin-top: 0.5rem;
   margin-bottom: 0.25rem;
+  color: var(--text-primary);
 }
 
-.message-content .chat-heading:first-child {
+.message-content .chat-heading-4 {
+  font-size: 1em;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}
+
+.message-content .chat-heading-1:first-child,
+.message-content .chat-heading-2:first-child,
+.message-content .chat-heading-3:first-child,
+.message-content .chat-heading-4:first-child {
   margin-top: 0;
+}
+
+/* List item styles */
+.message-content .list-item {
+  display: flex;
+  align-items: flex-start;
+  margin: 0.25rem 0;
+  line-height: 1.4;
+}
+
+.message-content .list-item.indent-1 {
+  margin-left: 1rem;
+}
+
+.message-content .list-item.indent-2 {
+  margin-left: 2rem;
+}
+
+.message-content .list-item.indent-3 {
+  margin-left: 3rem;
+}
+
+.message-content .list-bullet {
+  color: var(--text-accent);
+  font-weight: 600;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.message-content .list-number {
+  color: var(--text-accent);
+  font-weight: 600;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+  min-width: 1.5rem;
+}
+
+/* User message list overrides */
+.chat-message.user .list-bullet,
+.chat-message.user .list-number {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Enhanced text formatting */
+.message-content strong em,
+.message-content em strong {
+  font-weight: 700;
+  font-style: italic;
+  color: inherit;
 }

@@ -5,13 +5,13 @@ import './ChatInterface.css'
 
 /**
  * Parse markdown-style text and return React elements
- * Supports: ### headings, **bold**, *italic*, `code`, ~~strikethrough~~, [links](url), and line breaks
+ * Supports: # ## ### #### headings, **bold**, *italic*, ***bold+italic***, `code`, ~~strikethrough~~, [links](url), lists, and line breaks
  */
 function parseMarkdownText(text: string): React.ReactNode[] {
   const elements: React.ReactNode[] = []
   let key = 0
 
-  // Split by line breaks first to handle paragraphs
+  // Split by line breaks first to handle paragraphs and lists
   const lines = text.split('\n')
   
   lines.forEach((line, lineIndex) => {
@@ -19,17 +19,52 @@ function parseMarkdownText(text: string): React.ReactNode[] {
       elements.push(<br key={`br-${key++}`} />)
     }
     
-    // Check for heading syntax at start of line (###, ##, #)
-    const headingMatch = line.match(/^(#{1,3})\s+(.+)$/)
+    // Check for heading syntax at start of line (####, ###, ##, #)
+    const headingMatch = line.match(/^(#{1,4})\s+(.+)$/)
     if (headingMatch) {
+      const level = headingMatch[1].length
       const headingText = headingMatch[2]
-      elements.push(<strong key={`heading-${key++}`} className="chat-heading">{headingText}</strong>)
+      const HeadingTag = `h${Math.min(level, 4)}` as keyof JSX.IntrinsicElements
+      elements.push(
+        <HeadingTag key={`heading-${key++}`} className={`chat-heading chat-heading-${level}`}>
+          <FormattedText text={headingText} />
+        </HeadingTag>
+      )
       return
     }
     
-    // Pattern to match markdown syntax
-    // Order matters: check longer patterns first (****text**** before **text**)
-    const pattern = /(\*\*\*\*(.+?)\*\*\*\*)|(\*\*(.+?)\*\*)|(\*(.+?)\*)|(`(.+?)`)|(\~\~(.+?)\~\~)|(\[(.+?)\]\((.+?)\))/g
+    // Check for unordered list items (- Item or * Item)
+    const unorderedListMatch = line.match(/^(\s*)[-*]\s+(.+)$/)
+    if (unorderedListMatch) {
+      const indent = unorderedListMatch[1].length
+      const itemText = unorderedListMatch[2]
+      elements.push(
+        <div key={`ul-item-${key++}`} className={`list-item unordered-item indent-${Math.floor(indent / 2)}`}>
+          <span className="list-bullet">•</span>
+          <FormattedText text={itemText} />
+        </div>
+      )
+      return
+    }
+    
+    // Check for ordered list items (1. Item, 2. Item, etc.)
+    const orderedListMatch = line.match(/^(\s*)(\d+)\.\s+(.+)$/)
+    if (orderedListMatch) {
+      const indent = orderedListMatch[1].length
+      const number = orderedListMatch[2]
+      const itemText = orderedListMatch[3]
+      elements.push(
+        <div key={`ol-item-${key++}`} className={`list-item ordered-item indent-${Math.floor(indent / 2)}`}>
+          <span className="list-number">{number}.</span>
+          <FormattedText text={itemText} />
+        </div>
+      )
+      return
+    }
+    
+    // Pattern to match inline markdown syntax
+    // Order matters: check longer patterns first (***text*** before **text**)
+    const pattern = /(\*\*\*(.+?)\*\*\*)|(\*\*(.+?)\*\*)|(\*(.+?)\*)|(`(.+?)`)|(\~\~(.+?)\~\~)|(\[(.+?)\]\((.+?)\))/g
     
     let lastIndex = 0
     let match
@@ -41,8 +76,8 @@ function parseMarkdownText(text: string): React.ReactNode[] {
       }
       
       if (match[1]) {
-        // ****bold**** (4 asterisks)
-        elements.push(<strong key={`bold4-${key++}`}>{match[2]}</strong>)
+        // ***bold+italic***
+        elements.push(<strong key={`bold-italic-${key++}`}><em>{match[2]}</em></strong>)
       } else if (match[3]) {
         // **bold**
         elements.push(<strong key={`bold-${key++}`}>{match[4]}</strong>)

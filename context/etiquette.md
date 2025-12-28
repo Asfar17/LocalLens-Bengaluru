@@ -2,7 +2,7 @@
 
 ## Overview
 
-Bangalore blends traditional South Indian values with modern cosmopolitan culture. Understanding local etiquette helps you navigate social situations smoothly and build genuine connections.
+Bangalore blends traditional South Indian values with modern cosmopolitan culture. Understanding local etiquette helps you navigate social situations smoothly and build ***genuine connections***.
 
 ## General Social Etiquette
 
@@ -10,22 +10,22 @@ Bangalore blends traditional South Indian values with modern cosmopolitan cultur
 
 | Situation | Appropriate Greeting | Notes |
 |-----------|---------------------|-------|
-| Formal/Professional | Handshake, "Hello" | Firm but not crushing |
-| Traditional/Elders | Namaste (palms together) | Shows respect |
-| Casual/Peers | "Hi", "Hey", wave | Relaxed |
-| Kannada speakers | "Namaskara" | Appreciated effort |
+| Formal/Professional | Handshake, **"Hello"** | Firm but not crushing |
+| Traditional/Elders | **Namaste** (palms together) | Shows respect |
+| Casual/Peers | **"Hi"**, **"Hey"**, wave | Relaxed |
+| Kannada speakers | **"Namaskara"** | Appreciated effort |
 
 ### Addressing People
 
 **Do**:
-- Use "Sir/Madam" for strangers and in professional settings
-- "Anna" (elder brother) / "Akka" (elder sister) for slightly older strangers
+- Use **"Sir/Madam"** for strangers and in professional settings
+- **"Anna"** (elder brother) / **"Akka"** (elder sister) for slightly older strangers
 - First names only after invitation or with peers
-- Add "-ji" suffix for respect (Sharma-ji, Ravi-ji)
+- Add **"-ji"** suffix for respect (Sharma-ji, Ravi-ji)
 
 **Don't**:
 - Use first names with elders without permission
-- Call service staff rudely - "Anna/Akka" works well
+- Call service staff rudely - **"Anna/Akka"** works well
 - Assume everyone speaks Hindi - try English first
 
 ### Personal Space
@@ -295,3 +295,220 @@ The famous Indian head wobble:
 | Please | Dayavittu | Requesting |
 | Excuse me | Swalpa | Getting attention |
 | No problem | Parvagilla | Accepting apology |
+
+## Apartment & Housing Etiquette
+
+### Moving In
+- Introduce yourself to neighbors (bring sweets)
+- Register with apartment association
+- Understand maintenance rules and charges
+- Parking allocation - don't take others' spots
+
+### Living in Apartments
+- Noise restrictions usually 10 PM - 7 AM
+- Inform security about guests/deliveries
+- Garbage segregation mandatory (wet/dry)
+- Common area usage rules vary by complex
+
+### Landlord Relations
+- Pay rent on time (usually by 5th of month)
+- Inform about maintenance issues promptly
+- Get written permission for modifications
+- 1-2 months notice before vacating
+
+## Digital Etiquette
+
+### WhatsApp Groups
+- Don't spam with forwards
+- Good morning messages are common (tolerate them)
+- Mute groups liberally
+- Ask before adding to groups
+
+### Professional Communication
+- Email for formal matters
+- WhatsApp acceptable for quick work messages
+- LinkedIn for professional networking
+- Don't call without texting first (unless urgent)
+
+### Online Payments
+- UPI (Google Pay, PhonePe, Paytm) is king
+- Always verify UPI ID before large transfers
+- Screenshot payment confirmations
+- "Paytm karo" = pay digitally
+
+## Gym & Fitness Etiquette
+
+- Wipe equipment after use
+- Re-rack weights
+- Don't hog machines during peak hours
+- Appropriate workout attire
+- Headphones for music
+
+## Pet Etiquette
+
+### Dog Owners
+- Leash in public areas
+- Clean up after your pet
+- Some apartments have pet restrictions
+- Dog parks: Cubbon Park, BBMP parks
+
+### General
+- Ask before petting others' dogs
+- Be mindful of those afraid of animals
+- Strays are common - don't feed in residential areas (controversial)
+
+## Photography Etiquette
+
+### Public Places
+- Ask permission before photographing people
+- No photography in some temples/museums
+- Respect "No Photography" signs
+- Be discreet in markets
+
+### Social Media
+- Ask before posting others' photos
+- Tag locations thoughtfully
+- Respect privacy preferences
+
+## Tipping Guide (Expanded)
+
+| Service | Tip Amount | Notes |
+|---------|------------|-------|
+| Restaurant | 5-10% | If service charge not included |
+| Food delivery | ₹20-50 | Especially in rain/late night |
+| Hotel housekeeping | ₹50-100/day | Leave daily |
+| Salon/Spa | 10% | For good service |
+| Valet parking | ₹20-50 | When collecting car |
+| Movers/Packers | ₹200-500 | Per person, end of job |
+| Auto/Cab | Round up | Not expected but appreciated |
+
+## Queue Culture
+
+### Where Queues Work
+- Metro stations
+- Movie theaters
+- Banks
+- Government offices (mostly)
+
+### Where They Don't
+- Bus stops (survival of the fittest)
+- Auto stands
+- Street food stalls
+- Festival venues
+
+### Queue Tips
+- Stand close to person ahead
+- Protect your spot
+- Separate queues for women/seniors often exist
+- "Line mein aao" = get in line
+
+## Noise & Disturbance
+
+### Acceptable
+- Construction: 7 AM - 8 PM
+- Festivals: Extended hours during major festivals
+- Weddings: Can go late, especially in wedding halls
+
+### Not Acceptable
+- Loud music after 10 PM in residential areas
+- Honking in hospital/school zones
+- Loudspeakers without permission
+
+### What to Do
+- Talk to neighbors first
+- Apartment association for building issues
+- Police for persistent violations (100)
+
+## Eco-Friendly Etiquette
+
+### Waste Management
+- Segregate: Green (wet), Blue (dry), Red (hazardous)
+- E-waste: Special collection drives
+- Composting encouraged in many apartments
+
+### Water Conservation
+- Bangalore faces water scarcity
+- Don't waste water
+- Rainwater harvesting mandatory for large buildings
+- Report water wastage
+
+### Plastic
+- Carry cloth bags (plastic bags banned)
+- Refuse unnecessary packaging
+- Many cafes offer discounts for bringing own cups
+
+## Cultural Sensitivity
+
+### Religious Diversity
+- Respect all religions equally
+- Don't assume dietary preferences
+- Be aware of religious holidays
+- Avoid religious debates
+
+### Regional Sensitivity
+- Don't mock accents or languages
+- Appreciate Kannada culture
+- Avoid North vs South comparisons
+- "Namma Bengaluru" pride is real
+
+### LGBTQ+ Awareness
+- Growing acceptance, especially in urban areas
+- Pride events held annually
+- Some LGBTQ+ friendly spaces exist
+- Still conservative in traditional areas
+
+## Conflict Resolution
+
+### Approach
+- Stay calm, don't raise voice
+- "Swalpa adjust maadi" works wonders
+- Involve neutral third party if needed
+- Written complaints for serious issues
+
+### When to Escalate
+- Apartment association for building disputes
+- Consumer forum for service issues
+- Police for harassment/threats
+- RTO for traffic disputes
+
+## Seasonal Etiquette
+
+### Monsoon
+- Carry umbrella, don't shake it on others
+- Wet footwear outside shops
+- Be patient with delays
+- Help others in waterlogged areas
+
+### Summer
+- Offer water to delivery persons
+- Don't schedule outdoor events 12-4 PM
+- AC etiquette in shared spaces
+
+### Festival Season
+- Participate in community celebrations
+- Respect those who don't celebrate
+- Be mindful of noise levels
+- Share sweets with neighbors
+
+## Expat & Newcomer Tips
+
+### First Week
+1. Get a local SIM card
+2. Download essential apps (Ola, Uber, Swiggy, Google Pay)
+3. Open bank account (Kotak, HDFC easy for newcomers)
+4. Register at local police station (if required)
+5. Learn 5 basic Kannada phrases
+
+### First Month
+1. Explore your neighborhood
+2. Find your regular spots (grocery, pharmacy, restaurant)
+3. Join local community groups
+4. Understand garbage collection schedule
+5. Set up broadband internet
+
+### Integration Tips
+- Attend local events and festivals
+- Try local food regularly
+- Learn about Karnataka's history and culture
+- Make friends across communities
+- Be patient with the "adjustment" culture

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Bangalore's food scene is a delicious blend of traditional South Indian cuisine, pan-Indian flavors, and global influences. From iconic filter coffee to craft beer, the city caters to every palate and budget.
+Bangalore's food scene is a delicious blend of traditional South Indian cuisine, pan-Indian flavors, and global influences. From iconic filter coffee to craft beer, the city caters to ***every palate and budget***.
 
 ## Iconic Bangalore Foods
 
@@ -10,11 +10,11 @@ Bangalore's food scene is a delicious blend of traditional South Indian cuisine,
 
 | Dish | Description | Best Time | Price Range |
 |------|-------------|-----------|-------------|
-| Masala Dosa | Crispy rice crepe with potato filling | Breakfast/Tiffin | ₹50-150 |
-| Bisi Bele Bath | Spicy lentil rice with vegetables | Lunch | ₹80-150 |
-| Filter Coffee | Strong South Indian coffee | Anytime | ₹20-80 |
-| Idli-Vada | Steamed rice cakes with fried lentil donuts | Breakfast | ₹40-100 |
-| Ragi Mudde | Finger millet balls with sambar | Lunch/Dinner | ₹100-200 |
+| **Masala Dosa** | Crispy rice crepe with potato filling | Breakfast/Tiffin | ₹50-150 |
+| **Bisi Bele Bath** | Spicy lentil rice with vegetables | Lunch | ₹80-150 |
+| **Filter Coffee** | Strong South Indian coffee | ***Anytime*** | ₹20-80 |
+| **Idli-Vada** | Steamed rice cakes with fried lentil donuts | Breakfast | ₹40-100 |
+| **Ragi Mudde** | Finger millet balls with sambar | Lunch/Dinner | ₹100-200 |
 | Akki Roti | Rice flour flatbread | Breakfast | ₹40-80 |
 | Mangalore Buns | Sweet fried bread | Breakfast | ₹30-60 |
 | Mysore Pak | Sweet ghee-based dessert | Dessert | ₹50-200/box |
@@ -47,7 +47,7 @@ Bangalore's food scene is a delicious blend of traditional South Indian cuisine,
 - **Price**: ₹100-300 per person
 
 ### Military Hotels
-- **What**: Non-vegetarian Karnataka cuisine
+- **What**: ***Non-vegetarian*** Karnataka cuisine
 - **Best For**: Mutton dishes, chicken curry, biryani
 - **Famous**: Nagarjuna, Meghana Foods, Nandhini
 - **Price**: ₹200-400 per person
@@ -183,3 +183,274 @@ Bangalore's food scene is a delicious blend of traditional South Indian cuisine,
 5. **Water**: Always bottled or filtered, never tap
 6. **Spice warning**: "Medium spicy" in Bangalore is HOT for most
 7. **Cash backup**: Some darshinis don't accept cards
+
+## Legendary Restaurants
+
+### Iconic Establishments (Must Visit)
+| Restaurant | Location | Famous For | Price Range |
+|------------|----------|------------|-------------|
+| MTR (Mavalli Tiffin Rooms) | Lalbagh Road | Masala Dosa, Rava Idli | ₹150-300 |
+| Vidyarthi Bhavan | Basavanagudi | Crispy Masala Dosa | ₹100-200 |
+| CTR (Central Tiffin Room) | Malleshwaram | Benne Dosa | ₹80-150 |
+| Brahmin's Coffee Bar | Basavanagudi | Idli-Vada, Filter Coffee | ₹50-100 |
+| Koshy's | St. Mark's Road | Continental, Old Bangalore vibe | ₹300-600 |
+| Airlines Hotel | Lavelle Road | Biryani, Kebabs | ₹400-700 |
+| Nagarjuna | Multiple | Andhra Meals, Biryani | ₹300-500 |
+| Meghana Foods | Multiple | Biryani, Andhra Meals | ₹250-450 |
+
+### Best Biryani Spots
+| Restaurant | Style | Location | Price |
+|------------|-------|----------|-------|
+| Meghana Foods | Andhra | Multiple | ₹250-350 |
+| Nagarjuna | Andhra | Multiple | ₹280-400 |
+| Hyderabad Biryani House | Hyderabadi | Indiranagar | ₹300-450 |
+| Empire | Bangalore style | Multiple | ₹200-350 |
+| Shivaji Military Hotel | Karnataka | Multiple | ₹250-400 |
+| Paradise | Hyderabadi | Multiple | ₹300-450 |
+
+### Best Dosa Varieties
+| Type | Description | Where to Try |
+|------|-------------|--------------|
+| Masala Dosa | Classic potato filling | MTR, Vidyarthi Bhavan |
+| Benne Dosa | Butter-loaded, soft | CTR Malleshwaram |
+| Rava Dosa | Crispy semolina | MTR, Udupi restaurants |
+| Set Dosa | Soft, spongy, comes in sets | Brahmin's Coffee Bar |
+| Neer Dosa | Thin rice crepe, Mangalorean | Mangalore Pearl |
+| Paper Dosa | Extra thin and crispy | Most Udupi restaurants |
+| Ghee Roast Dosa | Ghee-loaded crispy | Vidyarthi Bhavan |
+
+## Cuisine by Region
+
+### Karnataka Cuisine
+- **Bisi Bele Bath**: Spicy lentil rice, must-try
+- **Ragi Mudde**: Finger millet balls with sambar
+- **Jolada Rotti**: Jowar flatbread, North Karnataka
+- **Akki Roti**: Rice flour flatbread with vegetables
+- **Neer Dosa**: Thin rice crepes from coastal Karnataka
+- **Kane Fry**: Ladyfish fry, Mangalorean specialty
+
+### Andhra Cuisine (Very Popular in Bangalore)
+- **Andhra Meals**: Full thali with multiple curries
+- **Gongura**: Sorrel leaves preparation
+- **Pesarattu**: Green moong dosa
+- **Pulihora**: Tamarind rice
+- **Gutti Vankaya**: Stuffed brinjal curry
+
+### North Indian
+- **Butter Chicken**: Available everywhere
+- **Dal Makhani**: Creamy lentils
+- **Chole Bhature**: Chickpea curry with fried bread
+- **Rajma Chawal**: Kidney beans with rice
+
+### Chinese/Indo-Chinese
+- **Gobi Manchurian**: Cauliflower in spicy sauce
+- **Chilli Chicken**: Bangalore loves this
+- **Hakka Noodles**: Street food staple
+- **Manchow Soup**: Spicy, crunchy
+
+## Cafe Culture
+
+### Third Wave Coffee Scene
+| Cafe | Specialty | Locations |
+|------|-----------|-----------|
+| Third Wave Coffee | Single origin, pour-over | Multiple |
+| Blue Tokai | Specialty roasts | Indiranagar, Koramangala |
+| Dyu Art Cafe | Art + Coffee | Koramangala |
+| Matteo Coffea | Italian style | Indiranagar, Church Street |
+| Hatti Kaapi | Traditional filter coffee | Multiple |
+
+### Work-Friendly Cafes
+- **Starbucks**: Reliable WiFi, multiple outlets
+- **Third Wave Coffee**: Good for long sessions
+- **Dialogues Cafe**: Designed for work
+- **Social**: Co-working + cafe hybrid
+- **Chai Point**: Budget-friendly, good chai
+
+### Instagrammable Cafes
+- **Dyu Art Cafe**: Art gallery vibes
+- **The Permit Room**: Vintage aesthetic
+- **Cafe Azzure**: Rooftop views
+- **Glen's Bakehouse**: Dessert heaven
+- **Lavonne**: Patisserie perfection
+
+## Bakeries & Desserts
+
+### Famous Bakeries
+| Bakery | Known For | Location |
+|--------|-----------|----------|
+| Iyengar Bakery | Khara buns, dilkush | Multiple |
+| Albert Bakery | Plum cake, pastries | Commercial Street |
+| Lavonne | French pastries | Multiple |
+| Glen's Bakehouse | Cakes, desserts | Multiple |
+| Thoms Bakery | Traditional items | Frazer Town |
+
+### Must-Try Sweets
+- **Mysore Pak**: Ghee-based sweet, melt-in-mouth
+- **Dharwad Peda**: Milk sweet, caramelized
+- **Chiroti**: Layered sweet, festival special
+- **Obbattu/Holige**: Sweet stuffed flatbread
+- **Badam Halwa**: Almond-based sweet
+- **Kesari Bath**: Semolina sweet, saffron-flavored
+
+## Late Night Food
+
+### Open After 11 PM
+| Place | Location | Open Till | Known For |
+|-------|----------|-----------|-----------|
+| Empire | Multiple | 1-2 AM | Biryani, kebabs |
+| Truffles | Multiple | 12 AM | Burgers |
+| Onesta | Multiple | 12 AM | Pizza |
+| Toit | Indiranagar | 1 AM | Pub food, beer |
+| 24/7 Dhabas | Highways | 24 hours | North Indian |
+
+### Late Night Delivery
+- Swiggy/Zomato deliver till 2-3 AM in many areas
+- McDonald's, Domino's open late
+- Cloud kitchens often have extended hours
+
+## Healthy Eating Options
+
+### Health-Focused Restaurants
+- **Carrots**: Salads, healthy bowls
+- **Salad Days**: Fresh salads
+- **Eat Fit**: Calorie-counted meals
+- **Grow Fit**: Subscription healthy meals
+- **The Bowl Company**: Healthy bowls
+
+### Organic & Farm-to-Table
+- **Farmizen**: Farm-fresh produce delivery
+- **Organic World**: Organic groceries
+- **Lumiere**: Organic restaurant
+- **Terra**: Farm-to-fork dining
+
+### Vegan-Friendly Spots
+- **Carrots**: Vegan options
+- **Burma Burma**: Vegan Burmese
+- **Chinita**: Mexican with vegan options
+- **Green Theory**: Fully vegan
+
+## Food by Area
+
+### Indiranagar
+- **100 Feet Road**: Toit, Truffles, Social
+- **12th Main**: Cafes, bakeries
+- **Best For**: Pub food, continental, cafes
+
+### Koramangala
+- **5th Block**: Meghana, Truffles, Third Wave
+- **Best For**: Biryani, burgers, startups crowd
+
+### Jayanagar
+- **4th Block**: Traditional South Indian
+- **Best For**: Authentic Karnataka food, sweets
+
+### Malleshwaram
+- **8th Cross**: CTR, traditional eateries
+- **Best For**: Breakfast, traditional snacks
+
+### Frazer Town
+- **Best For**: Biryani, kebabs, Muslim cuisine
+- **Famous**: Fanoos, Nagarjuna, Empire
+
+### Church Street
+- **Best For**: Continental, cafes, old Bangalore charm
+- **Famous**: Koshy's, Matteo, Cafe Noir
+
+## Food Festivals & Events
+
+### Annual Events
+- **Bengaluru Food Fete**: December, multiple venues
+- **Oota from Your Thota**: Farm dinners
+- **Grub Fest**: Food truck festival
+- **Namma Food Festival**: Local cuisine celebration
+
+### Weekly Markets
+- **Sunday Soul Sante**: Artisanal food stalls
+- **Farmer's Markets**: Organic produce, weekends
+
+## Grocery & Ingredients
+
+### Supermarkets
+- **BigBasket**: Online, wide selection
+- **Zepto/Blinkit**: 10-minute delivery
+- **More**: Physical stores
+- **Reliance Fresh**: Budget-friendly
+- **Nature's Basket**: Premium, imported items
+
+### Specialty Stores
+- **Namdhari's**: Fresh produce, organic
+- **Foodhall**: Gourmet ingredients
+- **Organic World**: Organic groceries
+- **Nilgiri's**: Premium supermarket
+
+### Local Markets
+- **KR Market**: Wholesale, early morning best
+- **Malleswaram Market**: Fresh produce
+- **Russell Market**: Meat, seafood, vegetables
+
+## Food Safety Tips
+
+### Street Food Safety
+1. Eat where there's high turnover
+2. Watch food being prepared fresh
+3. Avoid pre-cut fruits
+4. Stick to cooked items
+5. Carry hand sanitizer
+
+### Restaurant Red Flags
+- Empty during meal times
+- Visible pests
+- Dirty restrooms
+- Stale smell
+- Rude about customization requests
+
+### Water & Ice
+- Always bottled water
+- Ice in restaurants usually safe
+- Street juice - ask for no ice
+- Carry water bottle
+
+## Cooking at Home
+
+### Essential Spices
+- Sambar powder
+- Rasam powder
+- MTR ready mixes (great for beginners)
+- Coconut (fresh, grated)
+- Curry leaves
+- Mustard seeds
+
+### Where to Buy
+- **Local kirana stores**: Spices, basics
+- **Namdhari's**: Fresh produce
+- **BigBasket**: Convenience
+- **KR Market**: Wholesale prices
+
+### Cooking Classes
+- **Sita's Kitchen**: Traditional Karnataka
+- **Flavours of India**: Multi-cuisine
+- **Various Airbnb Experiences**: Home cooking
+
+## Budget Eating Guide
+
+### Under ₹100
+- Darshini breakfast
+- Street food
+- Iyengar bakery snacks
+- Chai + bun
+
+### Under ₹200
+- Udupi restaurant meals
+- Quick service restaurants
+- Food court meals
+
+### Under ₹500
+- Casual dining
+- Biryani restaurants
+- Cafe meals
+
+### Splurge-Worthy (₹1000+)
+- Microbreweries
+- Fine dining
+- Buffet brunches
+- Tasting menus
